@@ -14,7 +14,7 @@ The following is an installation example for `lazy.nvim`:
 
 ```lua
 {
-  'msaher/makegrep-job',
+  'msaher/makegrep-job.nvim',
   config = function()
     local mg = require('makegrep-job')
     local opts = {nargs = '*', complete = 'file'}
