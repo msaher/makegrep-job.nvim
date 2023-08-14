@@ -35,6 +35,9 @@ local function run_in_qflist(cmd, efm, loclist)
     end
 
     print(cmd)
+
+    vim.cmd.doautocmd('QuickFixCmdPre')
+
     collect_job_results(cmd, function(results, _)
         local lines = results[1]
         table.remove(lines) -- remove last empty line
@@ -45,7 +48,10 @@ local function run_in_qflist(cmd, efm, loclist)
         })
 
         open()
+
     end)
+
+    vim.cmd.doautocmd('QuickFixCmdPost')
 
 end
 
