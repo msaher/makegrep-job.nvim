@@ -48,4 +48,15 @@ local function run_in_qflist(cmd, efm, loclist)
     end)
 
 end
+
+function M.grep(args, opts)
+    local cmd = vim.o.grepprg .. ' ' .. args
+    return run_in_qflist(cmd, vim.o.grepformat, opts.loclist)
+end
+
+function M.make(args, opts)
+    local cmd = vim.o.makeprg .. ' ' .. args
+    return run_in_qflist(cmd, vim.o.errorformat, opts.loclist)
+end
+
 return M
